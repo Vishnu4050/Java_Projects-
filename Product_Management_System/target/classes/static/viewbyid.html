@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>View Product By Id</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #fff4e6, #e6f7ff);
+      min-height: 100vh;
+      margin: 0;
+      padding-top: 80px; /* space for fixed navbar */
+    }
+
+    /* Fixed Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0077b6;
+    }
+    nav .logo a {
+      text-decoration: none;
+      color: #0077b6;
+      transition: color 0.3s ease;
+    }
+    nav .logo a:hover {
+      color: #00bcd4;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #00bcd4;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    /* Form Container */
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      width: 350px;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    h1 {
+      color: #0077b6;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    input[type="number"]:focus {
+      outline: none;
+      border-color: #00bcd4;
+      box-shadow: 0 0 5px #00bcd4;
+    }
+
+    button {
+      background-color: #00b894;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #019875;
+    }
+
+	#result {
+	    margin-top: 20px;
+	    font-weight: 250;
+	    color: #000000; /* black */
+	    font-family: Arial, sans-serif;
+	    font-size: 14px;
+	    text-align: left;
+	    white-space: pre-wrap;
+	  }
+
+    .error {
+      color: #f44336;
+      font-weight: 700;
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo"><a href="index.html">ProductMS</a></div>
+    <ul>
+      <li><a href="addProduct.html">Add Product</a></li>
+      <li><a href="viewall.html">View All</a></li>
+      <li><a href="viewbyid.html">View by ID</a></li>
+      <li><a href="delete.html">Delete</a></li>
+      <li><a href="updateproduct.html">Update</a></li>
+    </ul>
+  </nav>
+
+  <!-- Form Container -->
+  <div class="form-container">
+    <h1>View Product By Id</h1>
+    <input type="number" id="search-id" placeholder="Enter product ID" />
+    <button onclick="findStudent()">Find Product</button>
+    <div id="result"></div>
+  </div>
+
+  <script src="js/viewbyid.js"></script>
+</body>
+</html>

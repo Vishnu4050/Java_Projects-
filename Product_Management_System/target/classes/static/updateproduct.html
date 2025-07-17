@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Update Product</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding-top: 80px; /* Space for fixed navbar */
+      max-width: 400px;
+      margin: 0 auto 40px;
+    }
+
+    /* Fixed Navbar - exactly same as homepage */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #333;
+    }
+    nav .logo a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav .logo a:hover {
+      color: #00bcd4;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      font-size: 16px;
+      color: #333;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #00bcd4;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Form container */
+    .form-container {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    /* Heading */
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #222;
+    }
+
+    /* Inputs */
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1.8px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input::placeholder {
+      color: #999;
+      font-style: italic;
+    }
+
+    input:focus {
+      border-color: #00bcd4;
+      outline: none;
+      box-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
+    }
+
+    /* Button */
+    button {
+      width: 100%;
+      padding: 14px 0;
+      background-color: #00bcd4;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+      transform: scale(1.03);
+    }
+
+    /* Message */
+    #message {
+      margin-top: 15px;
+      font-weight: 700;
+      text-align: center;
+      color: #00796b;
+      min-height: 1.2em;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      body {
+        max-width: 95%;
+        padding-top: 70px;
+      }
+
+      nav {
+        padding: 15px 20px;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+
+      .form-container {
+        padding: 20px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo"><a href="index.html">ProductMS</a></div>
+    <ul>
+      <li><a href="addProduct.html">Add Product</a></li>
+      <li><a href="viewall.html">View All</a></li>
+      <li><a href="viewbyid.html">View by ID</a></li>
+      <li><a href="delete.html">Delete</a></li>
+      <li><a href="updateproduct.html">Update</a></li>
+    </ul>
+  </nav>
+
+  <!-- Update Product Form -->
+  <div class="form-container">
+    <h1>Update Product</h1>
+    <input type="number" id="id" placeholder="Enter Id" />
+    <input type="text" id="pname" placeholder="Enter Name" required />
+    <input type="text" id="price" placeholder="Enter Price" required />
+    <button onclick="updateStudent()">Update Product</button>
+    <div id="message"></div>
+  </div>
+
+  <script src="js/update.js"></script>
+
+</body>
+</html>

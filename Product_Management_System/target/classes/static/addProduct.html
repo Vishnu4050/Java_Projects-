@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #fff4e6, #e6f7ff);
+      min-height: 100vh;
+      margin: 0;
+      padding-top: 80px; /* To avoid overlap with fixed navbar */
+    }
+
+    /* ✅ Fixed Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0077b6;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #00bcd4;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    /* ✅ Form Container */
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      width: 350px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0077b6;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    input[type="submit"] {
+      background-color: #00b894;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #019875;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navigation Bar -->
+  <nav>
+    <div class="logo" ><a href="index.html" style=" text-decoration: none;">ProductMS</a></div>
+    <ul>
+      <li><a href="addProduct.html">Add Product</a></li>
+      <li><a href="viewall.html">View All</a></li>
+      <li><a href="viewbyid.html">View by ID</a></li>
+      <li><a href="delete.html">Delete</a></li>
+      <li><a href="updateproduct.html">Update</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Form Section -->
+  <div class="form-container">
+    <h1>Add Product</h1>
+    <form id="add-form">
+      <input type="number" id="id" placeholder="Enter ID" required />
+      <input type="text" id="pname" placeholder="Enter Name" required />
+      <input type="text" id="price" placeholder="Enter Price" required />
+      <input type="submit" value="Add Product" />
+    </form>
+    <div id="message" style="margin-top:10px; font-weight:bold; text-align: center;"></div>
+  </div>
+
+  <script src="js/add.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Delete Product</title>
+  <style>
+    /* Reset default margins and paddings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body and layout */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7fc;
+      min-height: 100vh;
+      padding-top: 80px; /* Space for fixed navbar */
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Align top below navbar */
+      padding-bottom: 40px;
+    }
+
+    /* Fixed Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #00bcd4;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    /* Container for delete form */
+    .delete-container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    /* Heading */
+    h1 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    /* Input field */
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="number"]:focus {
+      border-color: #0066cc;
+      outline: none;
+    }
+
+    /* Delete button */
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Navbar -->
+  <nav>
+    <div class="logo"><a href="index.html" style=" text-decoration: none;">ProductMS</a></div>
+    <ul>
+      <li><a href="addProduct.html">Add Product</a></li>
+      <li><a href="viewall.html">View All</a></li>
+      <li><a href="viewbyid.html">View by ID</a></li>
+      <li><a href="delete.html">Delete</a></li>
+      <li><a href="updateproduct.html">Update</a></li>
+    </ul>
+  </nav>
+
+  <!-- Delete product form -->
+  <div class="delete-container">
+    <h1>Delete Product</h1>
+    <input type="number" id="delete-id" placeholder="Enter Product ID" required />
+    <button onclick="deleteProduct()">Delete</button>
+	
+	<div id="message-container" style="text-align: center; font-weight: 200; padding-top: 10px;"></div>
+  </div>
+
+  <script src="js/delete.js"></script>
+</body>
+</html>
