@@ -1,0 +1,74 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+ 
+  <title>Add User</title>
+ 
+</head>
+<body>
+	
+  <h2>Add New User</h2>
+  
+  <form th:action="@{/saveuser}" th:object="${adduser}" method="post">
+	Name:<input type="text" th:field="*{name}"><br/>
+	Email:<input type="text" th:field="*{email}"><br/>
+	Gender:<input type="text" th:field="*{gender}"><br/>
+	Age:<input type="number" th:field="*{age}"><br/>
+	<button type="submit">Add Submit</button>
+  </form>
+  
+  <a th:href="@{/}">Back</a>
+
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add User</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384‑EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+</head>
+<body>
+  <div class="container py-4">
+    <div class="card shadow-sm mx-auto" style="max-width:500px;">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">Add New User</h2>
+
+        <form th:action="@{/saveuser}" th:object="${adduser}" method="post">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Enter name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" th:field="*{email}" class="form-control" placeholder="Enter email" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <input type="text" th:field="*{gender}" class="form-control" placeholder="Enter gender" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input type="number" th:field="*{age}" class="form-control" placeholder="Enter age" required>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <a th:href="@{/}" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary">Add User</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          crossorigin="anonymous"></script>
+</body>
+</html>
